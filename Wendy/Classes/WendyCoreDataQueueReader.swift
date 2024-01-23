@@ -3,7 +3,7 @@ import Foundation
 import UIKit
 import Wendy
 
-public class WendyCoreDataQueueReader: QueueReader {    
+public class WendyCoreDataQueueReader: QueueReader {
     public init() {}
 
     internal func insertPendingTask(_ task: PendingTask) -> PendingTask {
@@ -60,7 +60,7 @@ public class WendyCoreDataQueueReader: QueueReader {
         }
     }
 
-    internal func getAllTasks() -> [PendingTask] {
+    public func getAllTasks() -> [PendingTask] {
         let viewContext = CoreDataManager.shared.viewContext
 
         do {
@@ -104,7 +104,7 @@ public class WendyCoreDataQueueReader: QueueReader {
         }
     }
 
-    private func getPersistedTaskByTaskId(_ taskId: Double) -> PersistedPendingTask? {
+    internal func getPersistedTaskByTaskId(_ taskId: Double) -> PersistedPendingTask? {
         let context = CoreDataManager.shared.viewContext
 
         let pendingTaskFetchRequest: NSFetchRequest<PersistedPendingTask> = PersistedPendingTask.fetchRequest()
@@ -119,7 +119,7 @@ public class WendyCoreDataQueueReader: QueueReader {
         }
     }
 
-    internal func getTaskByTaskId(_ taskId: Double) -> PendingTask? {
+    public func getTaskByTaskId(_ taskId: Double) -> PendingTask? {
         guard let persistedPendingTask = getPersistedTaskByTaskId(taskId) else {
             return nil
         }
@@ -185,7 +185,7 @@ public class WendyCoreDataQueueReader: QueueReader {
         }
     }
 
-    internal func getNextTaskToRun(_ lastSuccessfulOrFailedTaskId: Double, filter: RunAllTasksFilter?) -> PendingTask? {
+    public func getNextTaskToRun(_ lastSuccessfulOrFailedTaskId: Double, filter: RunAllTasksFilter?) -> PendingTask? {
         let context = CoreDataManager.shared.viewContext
 
         let pendingTaskFetchRequest: NSFetchRequest<PersistedPendingTask> = PersistedPendingTask.fetchRequest()
