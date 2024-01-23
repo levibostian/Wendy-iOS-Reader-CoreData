@@ -1,0 +1,21 @@
+
+on:
+  workflow_dispatch: # this workflow gets manually executed when commits merged into main 
+  
+jobs:
+  deploy:
+    runs-on: macos-13
+    permissions:
+      contents: write # to make a git tag       
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup-ios
+
+      - uses: ./.github/actions/setup-semantic-release      
+      - uses: cycjimmy/semantic-release-action@v4
+        with:
+          branch: latest # have this match what this workflow triggers on
+          semantic_version: latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
