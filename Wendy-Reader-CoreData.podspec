@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Wendy-Reader-CoreData'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.swift_version    = '5.0'
   s.summary          = 'CoreData reader for Wendy.'
 
