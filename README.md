@@ -12,7 +12,7 @@ Install the SDK by adding a new entry to your app’s `Podfile`:
 pod 'Wendy-Reader-CoreData', '~> version-here'
 ```
 
-(replace `version-here` with  [!\[Version]()[image-6][3]][7][4])
+Replace `version-here` with [![Version][image-1]][2]. 
 
 Next, add the reader to Wendy: 
 
@@ -20,6 +20,7 @@ Next, add the reader to Wendy:
 import Wendy
 import WendyReaderCoreData
 
+Wendy.setup(...)
 Wendy.shared.addReader(WendyCoreDataQueueReader())
 ```
 
@@ -28,5 +29,6 @@ Done!
 The next time that Wendy executes, it will read tasks from CoreData as well as other data stores. 
 
 [1]:	https://github.com/levibostian/Wendy-iOS/
-[3]:	https://img.shields.io/cocoapods/v/Wendy-Reader-CoreData.svg?style=flat
-[4]:	https://github.com/levibostian/Wendy-iOS-Reader-CoreData
+[2]:	https://github.com/levibostian/Wendy-iOS-Reader-CoreData
+
+[image-1]:	https://img.shields.io/cocoapods/v/Wendy-Reader-CoreData.svg?style=flat
