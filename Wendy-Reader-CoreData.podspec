@@ -41,7 +41,7 @@ Note: It's highly recommended to read the documentation before use. This project
 #    // TODO run bash script to install templates.
 #  end
 
-  s.dependency 'Wendy', '~> 5.1'
+  s.dependency 'Wendy', '~> 6.0'
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'CoreData'
